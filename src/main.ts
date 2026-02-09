@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
 import type { Person } from "./types";
 import type { Actress } from "./types";
+import { getActress } from "./api";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
@@ -47,3 +48,7 @@ const actressTest: Actress = {
 };
 
 console.log(actressTest);
+//milestone 3
+getActress(1).then((actress) => {
+  console.log("getActress(1):", actress);
+});
