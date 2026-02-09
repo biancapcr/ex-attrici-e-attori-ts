@@ -37,3 +37,32 @@ export async function getActress(id: number): Promise<Actress | null> {
     return null;
   }
 }
+// milestone 4:
+// restituisce un array di Actress (anche vuoto)
+export async function getAllActresses(): Promise<Actress[]> {
+  try {
+    // chiamata GET /actresses
+    const res = await fetch(`${BASE_URL}/actresses`);
+
+    // gestione errori http
+    if (!res.ok) {
+      throw new Error(`Errore HTTP: ${res.status}`);
+    }
+
+    // parsing json come unknown
+    const data: unknown = await res.json();
+
+    // se il server non restituisce un array, ritorno array vuoto
+    if (!Array.isArray(data)) {
+      return [];
+    }
+
+    // filtro: tengo solo gli elementi che passano il type guard
+    // ciò che ritorno è Actress[]
+    return data.filter(isActress);
+  } catch (error) {
+    // errore di rete o server
+    console.error("getAllActresses error:", error);
+    return [];
+  }
+}

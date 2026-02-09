@@ -5,6 +5,7 @@ import { setupCounter } from "./counter.ts";
 import type { Person } from "./types";
 import type { Actress } from "./types";
 import { getActress } from "./api";
+import { getAllActresses } from "./api";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
@@ -51,4 +52,9 @@ console.log(actressTest);
 //milestone 3
 getActress(1).then((actress) => {
   console.log("getActress(1):", actress);
+});
+//milestone 4
+getAllActresses().then((list) => {
+  console.log("getAllActresses:", list);
+  console.log("totale:", list.length);
 });
