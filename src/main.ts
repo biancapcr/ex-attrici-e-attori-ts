@@ -3,6 +3,7 @@ import typescriptLogo from "./typescript.svg";
 import viteLogo from "/vite.svg";
 import { setupCounter } from "./counter.ts";
 import type { Person } from "./types";
+import type { Actress } from "./types";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
@@ -33,3 +34,16 @@ const p: Person = {
 };
 
 console.log(p);
+//milestone 2
+const actressTest: Actress = {
+  id: 1,
+  name: "Test Actress",
+  birth_year: 1985,
+  biography: "bio",
+  image: "https://example.com/img.jpg",
+  most_famous_movies: ["Film 1", "Film 2", "Film 3"],
+  awards: "Oscar",
+  nationality: "American",
+};
+
+console.log(actressTest);

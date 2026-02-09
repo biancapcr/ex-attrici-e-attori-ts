@@ -18,3 +18,29 @@ export type Person = {
   // url immagine
   image: string;
 };
+
+// milestone 2: insieme limitato di nazionalità accettate
+export type Nationality =
+  | "American"
+  | "British"
+  | "Australian"
+  | "Israeli-American"
+  | "South African"
+  | "French"
+  | "Indian"
+  | "Israeli"
+  | "Spanish"
+  | "South Korean"
+  | "Chinese";
+
+// milestone 2: actress estende person aggiungendo campi specifici
+export type Actress = Person & {
+  // tuple di 3 film famosi (esattamente 3)
+  most_famous_movies: [string, string, string];
+
+  // premi ricevuti
+  awards: string;
+
+  // nazionalità vincolata ai valori ammessi
+  nationality: Nationality;
+};
