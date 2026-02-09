@@ -6,6 +6,7 @@ import type { Person } from "./types";
 import type { Actress } from "./types";
 import { getActress } from "./api";
 import { getAllActresses } from "./api";
+import { getActresses } from "./api";
 
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
@@ -57,4 +58,8 @@ getActress(1).then((actress) => {
 getAllActresses().then((list) => {
   console.log("getAllActresses:", list);
   console.log("totale:", list.length);
+});
+//milestone 5
+getActresses([1, 2, 9999]).then((results) => {
+  console.log("getActresses([1,2,9999]) ->", results);
 });

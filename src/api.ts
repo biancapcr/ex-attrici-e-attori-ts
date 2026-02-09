@@ -66,3 +66,19 @@ export async function getAllActresses(): Promise<Actress[]> {
     return [];
   }
 }
+// milestone 5:
+// riceve un array di id e recupera tutte le attrici in parallelo
+// ritorna un array con Actress oppure null (se non trovata)
+export async function getActresses(ids: number[]): Promise<(Actress | null)[]> {
+  // creo un array di promise, una per ogni id
+  const promises: Promise<Actress | null>[] = ids.map((id) => {
+    // per ogni id uso la funzione già fatta in milestone 3
+    return getActress(id);
+  });
+
+  // eseguo tutte le chiamate in parallelo e aspetto i risultati
+  const results = await Promise.all(promises);
+
+  // results è un array con Actress | null, nello stesso ordine degli ids
+  return results;
+}
